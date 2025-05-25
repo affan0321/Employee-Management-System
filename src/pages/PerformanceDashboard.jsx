@@ -4,8 +4,15 @@ import { getEmployeePerformance } from "../services/api";
 const PerformanceDashboard = () => {
     const [performance, setPerformance] = useState([]);
 
+    // useEffect(() => {
+    //     getEmployeePerformance().then(setPerformance);
+    // }, []);
+
     useEffect(() => {
-        getEmployeePerformance().then(setPerformance);
+        getEmployeePerformance().then(data => {
+            console.log("Performance Data:", data);  // ✅ Debugging line
+            setPerformance(data);
+        });
     }, []);
 
     return (
@@ -27,7 +34,8 @@ const PerformanceDashboard = () => {
                     ) : (
                         performance.map(record => (
                             <tr key={record.id}>
-                                <td>{record.employee.name}</td>
+                                {/* <td>{record.employee.name}</td> */}
+                                <td>{record.employee ? record.employee.name : "N/A"}</td>
                                 <td>{record.tasks_completed}</td>
                                 <td>{record.productivity_score}</td>
                             </tr>

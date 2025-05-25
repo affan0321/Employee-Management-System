@@ -70,6 +70,8 @@ import EmployeeList from "./pages/EmployeeList";
 import MarkAttendance from "./pages/MarkAttendance";
 import AttendanceRecords from "./pages/AttendanceRecords";
 import PerformanceDashboard from "./pages/PerformanceDashboard";
+import EmployeeDashboard from "./pages/EmployeeDashboard";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 
 const App = () => {
     return (
@@ -81,7 +83,9 @@ const App = () => {
                         <Link className="nav-link" to="/">Employees</Link>
                         <Link className="nav-link" to="/mark-attendance">Mark Attendance</Link>
                         <Link className="nav-link" to="/attendance-records">Attendance Records</Link>
-                        <Link className="nav-link" to="/performance-dashboard">Performance Dashboard</Link>  
+                        <Link className="nav-link" to="/performance-dashboard">Performance Dashboard</Link> 
+                        <Link className="nav-link" to="/employee-dashboard">Employee Dashboard</Link>
+                        <Link className="nav-link" to="/analytic-dashboard">Analytic Dashboard</Link>  
                     </div>
                 </div>
             </nav>
@@ -92,6 +96,8 @@ const App = () => {
                     <Route path="/mark-attendance" element={<MarkAttendance />} />
                     <Route path="/attendance-records" element={<AttendanceRecords />} />
                     <Route path="/performance-dashboard" element={<PerformanceDashboard />} />
+                    <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
+                    <Route path="/analytic-dashboard" element={<AnalyticsDashboard />} />
                 </Routes>
             </div>
         </Router>

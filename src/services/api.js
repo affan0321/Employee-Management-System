@@ -18,10 +18,25 @@ import axios from 'axios';
 const API_BASE_URL = "http://127.0.0.1:8000/api";
 
 // Fetch all employees
+// export const getEmployees = async () => {
+//     const response = await axios.get(`${API_BASE_URL}/employees/`);
+//     return response.data;
+// };
+
 export const getEmployees = async () => {
-    const response = await axios.get(`${API_BASE_URL}/employees/`);
-    return response.data;
+    try {
+        const response = await axios.get("http://127.0.0.1:8000/api/employees/", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`  // ✅ Ensure authentication token is sent
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching employees:", error);
+        return [];
+    }
 };
+
 
 // Add a new employee
 export const addEmployee = async (employeeData) => {
